@@ -1,4 +1,4 @@
-package org.example.estacionamiento.sede;
+package org.example.estacionamiento.sede.values;
 
 import co.com.sofka.domain.generic.Identity;
 
