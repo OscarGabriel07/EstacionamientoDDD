@@ -2,9 +2,14 @@ package org.example.estacionamiento.factura;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 
+import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.EventChange;
 import org.example.estacionamiento.factura.events.*;
 import org.example.estacionamiento.factura.values.*;
 import org.example.estacionamiento.vehiculo.VehiculoId;
+
+import java.util.List;
+import java.util.Stack;
 
 public class Factura extends AggregateEvent<FacturaId> {
     protected Detalle detalle;
@@ -38,6 +43,17 @@ public class Factura extends AggregateEvent<FacturaId> {
     public void cambiarMedioDePago(MedioDePago medioDePago){
         appendChange(new MedioDePagoCambiado(medioDePago)).apply();
 
+    }
+    private Factura(FacturaId facturaId){
+        super(facturaId);
+        subscribe(new FacturaEventChange(this));
+
+    }
+
+    public static Factura from(FacturaId facturaId, List<DomainEvent> events){
+        var factura = new Factura(facturaId);
+        events.forEach(factura::applyEvent);
+        return factura;
     }
 
 }

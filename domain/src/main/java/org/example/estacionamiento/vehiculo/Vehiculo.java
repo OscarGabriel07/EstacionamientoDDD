@@ -1,10 +1,18 @@
 package org.example.estacionamiento.vehiculo;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import co.com.sofka.domain.generic.Entity;
+
 
 public class Vehiculo extends AggregateEvent<VehiculoId> {
-    public Vehiculo(VehiculoId entityId) {
+    protected Propietario propietario;
+    protected TipoDeVehiculo tipoDeVehiculo;
+
+    public Vehiculo(VehiculoId entityId, Propietario propietario, TipoDeVehiculo tipoDeVehiculo) {
         super(entityId);
+
+        appendChange(new VehiculoCreado(propietario,tipoDeVehiculo)).apply();
+        subscribe(new VehiculoEventChange(this));
     }
+
+
 }
