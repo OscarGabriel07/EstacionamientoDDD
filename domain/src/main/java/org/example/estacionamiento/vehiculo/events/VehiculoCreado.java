@@ -1,6 +1,8 @@
-package org.example.estacionamiento.vehiculo;
+package org.example.estacionamiento.vehiculo.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
+import org.example.estacionamiento.vehiculo.entities.Propietario;
+import org.example.estacionamiento.vehiculo.entities.TipoDeVehiculo;
 
 public class VehiculoCreado extends DomainEvent {
     private final Propietario propietario;

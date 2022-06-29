@@ -3,7 +3,7 @@ package org.example.estacionamiento.factura.events;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.example.estacionamiento.factura.values.Detalle;
 import org.example.estacionamiento.factura.values.MedioDePago;
-import org.example.estacionamiento.vehiculo.VehiculoId;
+import org.example.estacionamiento.vehiculo.values.VehiculoId;
 
 public class FacturaCreada extends DomainEvent {
     private final Detalle detalle;

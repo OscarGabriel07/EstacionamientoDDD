@@ -3,13 +3,11 @@ package org.example.estacionamiento.factura;
 import co.com.sofka.domain.generic.AggregateEvent;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.sofka.domain.generic.EventChange;
 import org.example.estacionamiento.factura.events.*;
 import org.example.estacionamiento.factura.values.*;
-import org.example.estacionamiento.vehiculo.VehiculoId;
+import org.example.estacionamiento.vehiculo.values.VehiculoId;
 
 import java.util.List;
-import java.util.Stack;
 
 public class Factura extends AggregateEvent<FacturaId> {
     protected Detalle detalle;
