@@ -1,4 +1,18 @@
 package org.example.estacionamiento.sede.values;
 
-public class Horario {
+import co.com.sofka.domain.generic.ValueObject;
+
+import java.util.Objects;
+
+public class Horario implements ValueObject<String> {
+    private final String valor;
+
+    public Horario(String valor) {
+        this.valor = Objects.requireNonNull(valor);
+    }
+
+    @Override
+    public String value() {
+        return valor;
+    }
 }

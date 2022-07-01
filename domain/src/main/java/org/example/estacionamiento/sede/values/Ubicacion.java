@@ -1,4 +1,18 @@
 package org.example.estacionamiento.sede.values;
 
-public class Ubicacion {
+import co.com.sofka.domain.generic.ValueObject;
+
+import java.util.Objects;
+
+public class Ubicacion implements ValueObject<String> {
+    private final String valor;
+
+    public Ubicacion(String valor) {
+        this.valor = Objects.requireNonNull(valor);
+    }
+
+    @Override
+    public String value() {
+        return valor;
+    }
 }

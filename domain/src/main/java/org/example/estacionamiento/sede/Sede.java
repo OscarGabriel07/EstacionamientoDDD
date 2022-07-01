@@ -8,6 +8,7 @@ import org.example.estacionamiento.sede.entities.Empleado;
 import org.example.estacionamiento.sede.events.*;
 import org.example.estacionamiento.sede.values.*;
 import org.example.estacionamiento.vehiculo.Vehiculo;
+import org.example.estacionamiento.vehiculo.values.VehiculoId;
 
 import java.util.List;
 import java.util.Map;
@@ -27,10 +28,13 @@ public class Sede extends AggregateEvent<SedeId> {
 
     protected Set<Empleado> empleados;
 
-    public Sede(SedeId entityId, Empleado empleado, Horario horario, Ubicacion ubicacion, Cupo cupo) {
+    public Sede(SedeId entityId, Horario horario, Ubicacion ubicacion, Cupo cupo) {
         super(entityId);
-        appendChange(new SedeCreada(horario, ubicacion, cupo, empleado)).apply();
+        appendChange(new SedeCreada(horario, ubicacion, cupo)).apply();
+        subscribe(new SedeEventChange(this));
     }
+
+
 
     public void cambiarEstadoCelda(CeldaId celdaId, Estado estado){
         appendChange(new EstadoCeldaCambiado(celdaId, estado)).apply();
@@ -71,5 +75,31 @@ public class Sede extends AggregateEvent<SedeId> {
         return sede;
     }
 
+    public Horario horario() {
+        return horario;
+    }
 
+    public Cupo cupo() {
+        return cupo;
+    }
+
+    public Ubicacion ubicacion() {
+        return ubicacion;
+    }
+
+    public Set<Empleado> gempleados() {
+        return empleados;
+    }
+
+    public Map<CeldaId, Celda> celdas() {
+        return celdas;
+    }
+
+    public Set<Factura> facturas() {
+        return facturas;
+    }
+
+    public Set<Vehiculo> vehiculos() {
+        return vehiculos;
+    }
 }

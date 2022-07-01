@@ -54,4 +54,23 @@ public class Factura extends AggregateEvent<FacturaId> {
         return factura;
     }
 
+    public Detalle detalle() {
+        return detalle;
+    }
+
+    public MedioDePago medioDePago() {
+        return medioDePago;
+    }
+
+    public VehiculoId vehiculoId() {
+        return vehiculoId;
+    }
+
+    public ServicioId servicioId() {
+        return servicioId;
+    }
+
+    public TicketId ticketId() {
+        return ticketId;
+    }
 }
