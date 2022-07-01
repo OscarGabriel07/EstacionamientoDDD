@@ -8,7 +8,6 @@ import org.example.estacionamiento.sede.entities.Empleado;
 import org.example.estacionamiento.sede.events.*;
 import org.example.estacionamiento.sede.values.*;
 import org.example.estacionamiento.vehiculo.Vehiculo;
-import org.example.estacionamiento.vehiculo.values.VehiculoId;
 
 import java.util.List;
 import java.util.Map;
@@ -28,8 +27,8 @@ public class Sede extends AggregateEvent<SedeId> {
 
     protected Set<Empleado> empleados;
 
-    public Sede(SedeId entityId, Horario horario, Ubicacion ubicacion, Cupo cupo) {
-        super(entityId);
+    public Sede(SedeId sedeId, Horario horario, Ubicacion ubicacion, Cupo cupo) {
+        super(sedeId);
         appendChange(new SedeCreada(horario, ubicacion, cupo)).apply();
         subscribe(new SedeEventChange(this));
     }
@@ -40,8 +39,8 @@ public class Sede extends AggregateEvent<SedeId> {
         appendChange(new EstadoCeldaCambiado(celdaId, estado)).apply();
     }
 
-    public void asociarEmpleado(Empleado empleado){
-        appendChange(new EmpleadoAsociado(empleado)).apply();
+    public void asociarEmpleado(EmpleadoId empleadoid,Nombre nombre,Correo correo){
+        appendChange(new EmpleadoAsociado(empleadoid,nombre,correo)).apply();
     }
 
     public void agregarVehiculo(Vehiculo vehiculo){
@@ -52,7 +51,7 @@ public class Sede extends AggregateEvent<SedeId> {
         appendChange(new NombreEmpleadoActualizado(empleadoId, nombre)).apply();
     }
 
-    public void actualizarCorreoEmpleado(EmpleadoId empleadoId, Correo correo){
+    public void cambiarCorreoEmpleado(EmpleadoId empleadoId, Correo correo){
         appendChange(new CorreoEmpleadoActualizado(empleadoId, correo)).apply();
     }
 
@@ -102,4 +101,6 @@ public class Sede extends AggregateEvent<SedeId> {
     public Set<Vehiculo> vehiculos() {
         return vehiculos;
     }
+
+
 }

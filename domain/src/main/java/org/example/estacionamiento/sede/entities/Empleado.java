@@ -9,16 +9,21 @@ public class Empleado extends Entity<EmpleadoId> {
 
     private Nombre nombre;
     private Correo correo;
+    private EmpleadoId empleadoId;
 
-    public Empleado(EmpleadoId entityId) {
-        super(entityId);
+    public Empleado(EmpleadoId empleadoId, Nombre nombre, Correo correo) {
+        super(empleadoId);
+        this.empleadoId = empleadoId;
+        this.nombre = nombre;
+        this.correo = correo;
     }
 
     public void actualizarNombre(Nombre nombre){
         this.nombre = nombre;
     }
 
-    public void actualizarCorreo(Correo correo){
-        this.correo = correo;
+    public void actualizarCorreo(EmpleadoId empleadoId, Correo correoAModificar){
+        this.empleadoId = empleadoId;
+        this.correo = correo.cambiarCorreo(correoAModificar.value());
     }
 }

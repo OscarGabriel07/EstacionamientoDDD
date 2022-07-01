@@ -1,6 +1,7 @@
 package org.example.estacionamiento.sede;
 
 import co.com.sofka.domain.generic.EventChange;
+import org.example.estacionamiento.sede.entities.Empleado;
 import org.example.estacionamiento.sede.events.*;
 
 import java.util.HashMap;
@@ -23,7 +24,7 @@ public class SedeEventChange extends EventChange {
         });
 
         apply((EmpleadoAsociado event) -> {
-            sede.empleados.add(event.getEmpleado());
+            sede.empleados.add(new Empleado(event.empleadoId(),event.nombre(), event.correo()));
         });
 
         apply((VehiculoAgregado event) -> {
@@ -39,7 +40,7 @@ public class SedeEventChange extends EventChange {
         apply((CorreoEmpleadoActualizado event) -> {
             var empleado = sede.getEmpleadoPorId(event.getEmpleadoId())
                     .orElseThrow(() -> new IllegalArgumentException("No se encuentra el empleado"));
-            empleado.actualizarCorreo(event.getCorreo());
+            empleado.actualizarCorreo(event.getEmpleadoId(),event.getCorreo());
         });
 
         apply((FacturaAgregada event) -> {
