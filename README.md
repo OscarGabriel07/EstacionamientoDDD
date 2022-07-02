@@ -1,6 +1,13 @@
 # EstacionamientoDDD
 Repositorio para entregar el Pet Project del Curso de Domain Driven Design
 
+# Grupo
+Daniel Felife Marin
+
+John Edward Acevedo
+
+Óscar Gabriel Farfán
+
 # Análisis del Problema
 ![image](https://user-images.githubusercontent.com/97564825/176984701-57c2c1df-dfa2-45bc-9d82-742fd6df39d9.png)
 
