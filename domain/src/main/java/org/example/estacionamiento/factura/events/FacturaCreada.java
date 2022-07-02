@@ -10,7 +10,7 @@ public class FacturaCreada extends DomainEvent {
     private final MedioDePago medioDePago;
     private final VehiculoId vehiculoId;
 
-    public FacturaCreada(Detalle detalle, MedioDePago medioDePago, VehiculoId vehiculoId) {
+    public FacturaCreada(Detalle detalle, MedioDePago medioDePago,  VehiculoId vehiculoId) {
         super("org.example.estacionamiento.FacturaCreada");
         this.detalle = detalle;
         this.medioDePago = medioDePago;

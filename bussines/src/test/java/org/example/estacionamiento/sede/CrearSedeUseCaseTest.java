@@ -3,6 +3,7 @@ package org.example.estacionamiento.sede;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
+import org.example.estacionamiento.sede.commands.CrearSede;
 import org.example.estacionamiento.sede.events.SedeCreada;
 import org.example.estacionamiento.sede.values.Cupo;
 import org.example.estacionamiento.sede.values.Horario;
@@ -13,8 +14,6 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CrearSedeUseCaseTest {
 

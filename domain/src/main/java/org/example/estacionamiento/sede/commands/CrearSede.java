@@ -1,4 +1,4 @@
-package org.example.estacionamiento.sede;
+package org.example.estacionamiento.sede.commands;
 
 import co.com.sofka.domain.generic.Command;
 import org.example.estacionamiento.sede.values.Cupo;

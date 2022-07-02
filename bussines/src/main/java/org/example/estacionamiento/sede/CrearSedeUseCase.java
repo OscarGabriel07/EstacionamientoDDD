@@ -3,6 +3,7 @@ package org.example.estacionamiento.sede;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
+import org.example.estacionamiento.sede.commands.CrearSede;
 
 public class CrearSedeUseCase extends UseCase<RequestCommand<CrearSede>, ResponseEvents> {
     @Override
