@@ -2,7 +2,7 @@
 Repositorio para entregar el Pet Project del Curso de Domain Driven Design
 
 # Grupo
-Daniel Felife Marin
+Daniel Felipe Marin
 
 John Edward Acevedo
 
